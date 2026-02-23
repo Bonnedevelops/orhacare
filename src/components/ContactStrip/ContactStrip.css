@@ -1,0 +1,13 @@
+.contact-strip {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+}
+
+.contact-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+@media (max-width: 720px) {
+  .contact-strip { grid-template-columns: 1fr; }
+  .contact-actions { width: 100%; }
+}
