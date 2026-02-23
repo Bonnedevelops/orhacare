@@ -24,14 +24,67 @@ export const handler = async (event) => {
     }
 
     const html = `
-      <h2>New Orha Care Request</h2>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Phone/WhatsApp:</strong> ${phone}</p>
-      <p><strong>Location:</strong> ${location}</p>
-      <p><strong>Service:</strong> ${service}</p>
-      ${notes ? `<p><strong>Notes:</strong> ${notes}</p>` : ''}
-      <p style="color:#666;font-size:12px;">Sent ${new Date().toISOString()}</p>
-    `
+      <div style="background:#f4f6f8;padding:20px 0;font-family:Arial,Helvetica,sans-serif;">
+        <table align="center" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;background:#ffffff;border-radius:8px;overflow:hidden;border:1px solid #e5e7eb;">
+          
+          <!-- Header -->
+          <tr>
+            <td style="background:#0f766e;color:#ffffff;padding:18px 24px;font-size:20px;font-weight:bold;">
+              New Orha Care Request
+            </td>
+          </tr>
+
+          <!-- Body -->
+          <tr>
+            <td style="padding:24px;font-size:14px;color:#111827;line-height:1.6;">
+              
+              <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
+                
+                <tr>
+                  <td style="padding:8px 0;color:#6b7280;width:150px;"><strong>Name</strong></td>
+                  <td style="padding:8px 0;">${name}</td>
+                </tr>
+
+                <tr>
+                  <td style="padding:8px 0;color:#6b7280;"><strong>Phone / WhatsApp</strong></td>
+                  <td style="padding:8px 0;">${phone}</td>
+                </tr>
+
+                <tr>
+                  <td style="padding:8px 0;color:#6b7280;"><strong>Location</strong></td>
+                  <td style="padding:8px 0;">${location}</td>
+                </tr>
+
+                <tr>
+                  <td style="padding:8px 0;color:#6b7280;"><strong>Service</strong></td>
+                  <td style="padding:8px 0;">${service}</td>
+                </tr>
+
+                ${
+                  notes
+                    ? `
+                <tr>
+                  <td style="padding:8px 0;color:#6b7280;vertical-align:top;"><strong>Notes</strong></td>
+                  <td style="padding:8px 0;">${notes}</td>
+                </tr>`
+                    : ""
+                }
+
+              </table>
+
+            </td>
+          </tr>
+
+          <!-- Footer -->
+          <tr>
+            <td style="background:#f9fafb;padding:14px 24px;font-size:12px;color:#6b7280;text-align:center;">
+              Sent ${new Date().toLocaleString()}
+            </td>
+          </tr>
+
+        </table>
+      </div>
+    `;
 
     const res = await resend.emails.send({
       from: required(fromAddress, 'EMAIL_FROM'),
