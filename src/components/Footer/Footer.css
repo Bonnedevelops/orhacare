@@ -1,0 +1,29 @@
+.footer {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.logo-img { width: 44px; height: 44px; object-fit: contain; }
+
+.muted { color: var(--color-muted); }
+
+.footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+.footer h4 { margin-bottom: 12px; }
+
+.contact-list { gap: 10px; }
+.contact-list li { display: flex; align-items: center; gap: 10px; }
+.contact-icon { width: 22px; height: 22px; object-fit: contain; flex-shrink: 0; }
+
+.footer-bottom {
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}

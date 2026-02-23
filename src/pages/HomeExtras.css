@@ -1,0 +1,55 @@
+.stats-strip { background: #f7fbfc; }
+.stats-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.stat-card { background: #fff; border: 1px solid #e4e8f5; border-radius: 14px; padding: 16px; box-shadow: 0 10px 24px rgba(17,59,126,0.06); }
+.stat-value { font-weight: 800; font-size: 1.3rem; color: #0f1f63; }
+.stat-label { font-weight: 700; margin-top: 4px; }
+.stat-detail { color: #5b647a; font-size: 0.95rem; }
+
+.process-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin-bottom: 18px; }
+.process-card { background: #f6f8fc; border: 1px solid #e4e8f5; border-radius: 14px; padding: 14px; box-shadow: 0 10px 22px rgba(17,59,126,0.06); display: grid; gap: 6px; }
+.process-icon { font-size: 1.3rem; }
+.process-title { font-weight: 800; }
+
+.testimonial-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.testimonial-card { background: #fff; border: 1px solid #e4e8f5; border-radius: 16px; padding: 16px; box-shadow: 0 12px 26px rgba(17,59,126,0.07); position: relative; }
+.quote-mark { position: absolute; top: 10px; left: 14px; font-size: 2rem; color: rgba(15,31,99,0.2); }
+.testimonial-card p { margin: 0 0 12px 0; }
+.testimonial-name { font-weight: 800; }
+.testimonial-role { color: #5b647a; font-size: 0.95rem; }
+
+.testimonials-block { background: #f7fbfc; }
+.section-head.center { text-align: center; }
+.success-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.success-card { background: #fff; border: 1px solid #e4e8f5; border-radius: 16px; padding: 14px; box-shadow: 0 12px 24px rgba(17,59,126,0.08); display: grid; gap: 8px; }
+.t-head { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: center; }
+.t-head img { width: 46px; height: 46px; border-radius: 50%; object-fit: cover; }
+.stars { color: #0f1f63; letter-spacing: 1px; font-size: 0.9rem; }
+
+.blue-service-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.blue-card { background: #eef4ff; border-radius: 16px; padding: 16px; border: 1px solid #deebff; box-shadow: 0 12px 24px rgba(17,59,126,0.06); display: grid; gap: 10px; align-content: start; }
+.blue-icon { width: 52px; height: 52px; border-radius: 999px; background: #cfe4ff; display: grid; place-items: center; }
+.blue-icon img { width: 28px; height: 28px; object-fit: contain; }
+.blue-title { font-weight: 800; font-size: 1.05rem; }
+.blue-copy { color: #304674; }
+.blue-link { font-weight: 700; color: #0f1f63; }
+
+#request.section {
+  background: linear-gradient(135deg, rgba(15,31,99,0.78), rgba(47,92,255,0.6)), url('/images/orhacarenurses1.png') center/cover no-repeat;
+  color: white;
+  padding: 56px 0;
+}
+
+#request .section-head h2,
+#request .section-head p { color: white; }
+
+#request .section-head { margin-bottom: 16px; }
+
+#request .container { max-width: 760px; }
+
+#request .request-wrapper {
+  background: rgba(255,255,255,0.96);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.15);
+  color: var(--color-text);
+  padding: 16px;
+  border-radius: 14px;
+}
