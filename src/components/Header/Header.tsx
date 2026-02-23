@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import './Header.css'
 
@@ -11,6 +11,7 @@ const navItems = [
 
 const Header: React.FC = () => {
   const { pathname } = useLocation()
+  const [open, setOpen] = useState(false)
 
   return (
     <header className="topbar">
@@ -22,6 +23,17 @@ const Header: React.FC = () => {
             <div className="brand-tag">Lighting the path to healing</div>
           </div>
         </div>
+        <button
+          type="button"
+          className={`menu-toggle ${open ? 'open' : ''}`}
+          aria-label="Toggle menu"
+          aria-expanded={open}
+          onClick={() => setOpen((prev) => !prev)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
         <nav className="nav">
           {navItems.map((item) => (
             <Link key={item.path} to={item.path} className={pathname === item.path ? 'active' : ''}>
@@ -29,10 +41,15 @@ const Header: React.FC = () => {
             </Link>
           ))}
         </nav>
-        <div className="cta-group">
-          <a className="cta-link" href="tel:+256708918995">Call +256 708 918 995</a>
-          <a className="btn" href="#request">Request care</a>
-        </div>
+      </div>
+      <div className={`mobile-drawer ${open ? 'open' : ''}`} aria-hidden={!open}>
+        <nav className="nav mobile-nav" onClick={() => setOpen(false)}>
+          {navItems.map((item) => (
+            <Link key={item.path} to={item.path} className={pathname === item.path ? 'active' : ''}>
+              {item.label}
+            </Link>
+          ))}
+        </nav>
       </div>
     </header>
   )
