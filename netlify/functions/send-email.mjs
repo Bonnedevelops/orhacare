@@ -1,25 +1,15 @@
-import nodemailer from 'nodemailer'
+import { Resend } from 'resend'
 
 const required = (value, name) => {
   if (!value) throw new Error(`Missing env ${name}`)
   return value
 }
 
-const user = process.env.SMTP_USER
-const pass = process.env.SMTP_PASS
-const host = process.env.SMTP_HOST || 'smtp.gmail.com'
-const port = Number(process.env.SMTP_PORT || 465)
-const secure = process.env.SMTP_SECURE ? process.env.SMTP_SECURE === 'true' : true
+const resendApiKey = process.env.RESEND_API_KEY
+const resend = new Resend(resendApiKey)
 
-const transporter = nodemailer.createTransport({
-  host,
-  port,
-  secure,
-  auth: {
-    user: required(user, 'SMTP_USER'),
-    pass: required(pass, 'SMTP_PASS'),
-  },
-})
+const fromAddress = process.env.EMAIL_FROM || 'onboarding@resend.dev'
+const toAddress = process.env.EMAIL_TO || process.env.SMTP_TO || process.env.SMTP_USER
 
 export const handler = async (event) => {
   if (event.httpMethod !== 'POST') {
@@ -43,17 +33,26 @@ export const handler = async (event) => {
       <p style="color:#666;font-size:12px;">Sent ${new Date().toISOString()}</p>
     `
 
-    await transporter.sendMail({
-      from: process.env.SMTP_FROM || user,
-      to: process.env.SMTP_TO || user,
+    const res = await resend.emails.send({
+      from: required(fromAddress, 'EMAIL_FROM'),
+      to: required(toAddress, 'EMAIL_TO'),
       subject: `Care request – ${service} – ${name}`,
       html,
-      replyTo: phone ? `${phone} <${process.env.SMTP_FROM || user}>` : undefined,
     })
+
+    if (res.error) {
+      throw new Error(res.error.message || 'Resend failed')
+    }
 
     return { statusCode: 200, body: JSON.stringify({ ok: true }) }
   } catch (err) {
     console.error('send-email error', err)
-    return { statusCode: 500, body: 'Failed to send email' }
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        error: 'Failed to send email',
+        details: err.message,
+      }),
+    }
   }
 }
