@@ -8,8 +8,9 @@ const required = (value, name) => {
 const user = process.env.SMTP_USER
 const pass = process.env.SMTP_PASS
 const host = process.env.SMTP_HOST || 'smtp.gmail.com'
+// Gmail app passwords only work on 465/SSL or 587/TLS (secure false).
 const port = Number(process.env.SMTP_PORT || 465)
-const secure = process.env.SMTP_SECURE ? process.env.SMTP_SECURE === 'true' : true
+const secure = process.env.SMTP_SECURE ? process.env.SMTP_SECURE === 'true' : port === 465
 
 const transporter = nodemailer.createTransport({
   host,
@@ -43,12 +44,15 @@ export const handler = async (event) => {
       <p style="color:#666;font-size:12px;">Sent ${new Date().toISOString()}</p>
     `
 
+    const fromAddress = process.env.SMTP_FROM || user
+    const toAddress = process.env.SMTP_TO || user
+
     await transporter.sendMail({
-      from: process.env.SMTP_FROM || user,
-      to: process.env.SMTP_TO || user,
+      from: fromAddress,
+      to: toAddress,
       subject: `Care request – ${service} – ${name}`,
       html,
-      replyTo: phone ? `${phone} <${process.env.SMTP_FROM || user}>` : undefined,
+      replyTo: fromAddress,
     })
 
     return { statusCode: 200, body: JSON.stringify({ ok: true }) }
