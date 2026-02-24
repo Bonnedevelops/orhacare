@@ -1,4 +1,13 @@
-.topbar { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--color-border); }
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+  --topbar-height: 110px;
+  min-height: var(--topbar-height);
+}
 
 .topbar-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 18px; padding: 16px 0; }
 
@@ -45,22 +54,28 @@
 .mobile-drawer { display: none; }
 
 @media (max-width: 900px) {
+  .topbar { --topbar-height: 110px; }
   .topbar-inner { grid-template-columns: auto auto; grid-template-areas: 'brand toggler'; }
   .brand { grid-area: brand; }
   .nav { display: none; }
   .cta-group { display: none; }
-  .menu-toggle { display: inline-flex; grid-area: toggler; justify-self: end; }
+  .menu-toggle { display: inline-flex; grid-area: toggler; justify-self: end; position: relative; z-index: 210; }
   .mobile-drawer {
     display: none;
-    position: absolute;
-    left: 0;
+    position: fixed;
     right: 0;
-    top: calc(100% + 2px);
-    background: #ffffff;
+    left: auto;
+    width: min(200px, 88vw);
+    top: 0;
+    height: min(250px);
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
     border-top: 1px solid var(--color-border);
-    box-shadow: 0 14px 30px rgba(0,0,0,0.12);
-    padding: 6px 0 14px;
-    z-index: 120;
+    border-left: 1px solid var(--color-border);
+    box-shadow: -6px 0 26px rgba(0,0,0,0.14);
+    padding: calc(var(--topbar-height) + 10px) 20px 20px;
+    z-index: 180;
+    overflow-y: auto;
   }
   .mobile-drawer .nav { display: flex; flex-direction: column; padding: 12px 0; gap: 12px; }
   .mobile-cta { display: flex; gap: 10px; padding-bottom: 12px; }

@@ -10,7 +10,7 @@ export type HeroSlide = {
 export const heroSlides: HeroSlide[] = [
   {
     title: 'Bedside nursing care at your home',
-    copy: 'Vitals monitoring, wound care, medications, and recovery overseen by registered nurses across Kampala.',
+    copy: 'Vital monitoring, wound care, medications, and recovery overseen by registered nurses across Kampala.',
     ctaLabel: 'Request bedside care',
     ctaHref: '#request',
     image: '/images/homecare.png',
