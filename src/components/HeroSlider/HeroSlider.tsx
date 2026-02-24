@@ -47,7 +47,6 @@ const HeroSlider: React.FC = () => {
           style={{ backgroundImage: `linear-gradient(120deg, rgba(0,0,0,0.55), rgba(0,0,0,0.25)), url(${slide.image})` }}
         >
           <div className="slide-content" aria-live="polite">
-            <div className="eyebrow">Home care nursing</div>
             <h1>{slide.title}</h1>
             <p className="lead">{slide.copy}</p>
             {slide.tags && (
