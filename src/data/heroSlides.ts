@@ -14,7 +14,7 @@ export const heroSlides: HeroSlide[] = [
     ctaLabel: 'Request bedside care',
     ctaHref: '#request',
     image: '/images/homecare.png',
-    tags: ['RN-led', 'Same-day'],
+    tags: ['Licensed Nurses', '24/7 Care', 'Same-Day Visit'],
   },
   {
     title: 'Mother & baby care, day or night',
@@ -22,7 +22,7 @@ export const heroSlides: HeroSlide[] = [
     ctaLabel: 'Book mother & baby care',
     ctaHref: '#request',
     image: '/images/motherbaby-care.png',
-    tags: ['Night nurse', 'Lactation'],
+    tags: ['Postnatal Experts', 'Overnight Help', 'Newborn Care'],
   },
   {
     title: 'Travel nurse assistance',
@@ -30,6 +30,6 @@ export const heroSlides: HeroSlide[] = [
     ctaLabel: 'Plan a trip with a nurse',
     ctaHref: '#request',
     image: '/images/travel-asstance.png',
-    tags: ['On-the-move', 'Coverage: Kampala'],
+    tags: ['Escort Nurse', 'Safe Transfers', 'Countrywide'],
   },
 ]

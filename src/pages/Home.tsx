@@ -24,7 +24,7 @@ const services = [
   },
   {
     title: 'Elderly support',
-    description: 'Orha care ensures relaible daily living assistance, mobility help, and companionship for older adults at home',
+    description: 'Orha care ensures reliable daily living assistance, mobility help, and companionship for older adults at home',
     bullets: ['Falls prevention focus', 'Medication reminders'],
     tone: 'green' as const,
     image: '/images/homecare.png',

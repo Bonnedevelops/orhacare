@@ -74,7 +74,7 @@ const ServicesPage: React.FC = () => {
           <div className="section-head">
             <p className="muted">Deliverring excellence in healthcare, Our Nursing Care Services are carefully crafted
               to offer comprehensive and compassionate solutions tailored to the unique needs of individuals and families.
-              Our team of devoted ursing professionals n unwavering in their commitment to providing high-quality care unwavering support.
+              Our team of devoted nursing professionals are unwavering in their commitment to providing high-quality care.
               Explore the array of services we offer:
             </p>
           </div>
