@@ -25,7 +25,7 @@ const icons = {
 
 const cards = [
   {
-    title: 'Registered, vetted nurses you can trust',
+    title: 'Registered, vetted nurses you can trust ',
     copy: 'We maintain strict clinical oversight and quality standards, ensuring you receive professional, ethical, and dependable care from practitioners who are both qualified and compassionate',
     icon: icons.nurse,
   },
