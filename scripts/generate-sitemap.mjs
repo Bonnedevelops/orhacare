@@ -27,7 +27,7 @@ const urlSet = routes
   )
   .join('\n')
 
-const sitemap = `<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">
 ${urlSet}
 </urlset>
@@ -35,7 +35,7 @@ ${urlSet}
 
 if (!existsSync(publicDir)) mkdirSync(publicDir, { recursive: true })
 
-writeFileSync(resolve(publicDir, 'sitemap.xml'), sitemap.trim() + '\\n', 'utf8')
+writeFileSync(resolve(publicDir, 'sitemap.xml'), sitemap.trim() + '\n', 'utf8')
 
 const robots = `User-agent: *
 Allow: /
