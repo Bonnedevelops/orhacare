@@ -19,13 +19,13 @@ const today = new Date().toISOString().split('T')[0]
 const urlSet = routes
   .map(
     (path) => `  <url>
-    <loc>${SITE_URL.replace(/\\/$/, '')}${path}</loc>
+    <loc>${SITE_URL.replace(/\/$/, '')}${path}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>${path === '/' ? '1.0' : '0.8'}</priority>
   </url>`
   )
-  .join('\\n')
+  .join('\n')
 
 const sitemap = `<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 <urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">
@@ -40,7 +40,7 @@ writeFileSync(resolve(publicDir, 'sitemap.xml'), sitemap.trim() + '\\n', 'utf8')
 const robots = `User-agent: *
 Allow: /
 
-Sitemap: ${SITE_URL.replace(/\\/$/, '')}/sitemap.xml
+Sitemap: ${SITE_URL.replace(/\/$/, '')}/sitemap.xml
 `
 
 writeFileSync(resolve(publicDir, 'robots.txt'), robots, 'utf8')
