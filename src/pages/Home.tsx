@@ -95,8 +95,6 @@ const HomePage: React.FC = () => {
     <Layout>
       <HeroSlider />
 
-      <WhyChoose />
-
       <section className="section services-showcase">
         <div className="container services-wrap">
           <div className="section-head">
@@ -145,6 +143,8 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <WhyChoose />
 
       <section className="section stats-strip">
         <div className="container stats-grid">

@@ -76,3 +76,7 @@
   .controls { inset: auto 0 12px 0; }
   .nav { width: 32px; height: 32px; }
 }
+
+@media (max-width: 959px) {
+  .hero-slider .cta-row { display: none; }
+}
